@@ -1,6 +1,14 @@
 // GOAL: Make a notes app that draws using the mouse, works like a Word Document
 // and that's it. 
 
+// To-do-list
+// - Add a list to the text
+// - Make the textbox only moveable when the user's text content is too long
+// - Have a page break
+// - Make a landscape feature
+
+
+
 dragElement(document.getElementById('save-document-box'));
 
 function dragElement(elmnt) {
@@ -41,11 +49,13 @@ function dragElement(elmnt) {
         document.onmouseup = null;
         document.onmousemove = null;
     }
-}
+  }
+
+
 
 function saveDocumentToggle() {
     var table = document.getElementById('save-document-box');
-    console.log(filename);
+    const tableFilename = document.getElementById('save-filename');
 
     if (table == null) {
         alert('This function is not defined.');
@@ -54,24 +64,39 @@ function saveDocumentToggle() {
         if (table.style.display === 'none') {
             table.style.display = 'grid';
             setFilename(document.getElementById('filename').value);
+            tableFilename.value = getFilename();
+            console.log(filename);
         }
         else {
             table.style.display = 'none';
-            setFilename(document.getElementById('filename').value);
         }
     }
 }
 
 function saveDocument() {
-    ;
+    const pdfCheckbox = document.getElementById('PDF');
+    const wordCheckbox = document.getElementById('wordDoc');
+    const tableFilename = document.getElementById('save-filename');
+    if (pdfCheckbox.checked) {
+        console.log(pdfCheckbox.checked);
+        saveAsPDF(tableFilename.value);
+    }
+    if (wordCheckbox.checked) {
+        console.log(wordCheckbox.checked);
+        // Have a saveAsWindow thing
+        window.print();
+    }
 }
 
-function saveAsPDF() {
+
+// TODO: Fix this function.
+
+function saveAsPDF(filename) {
     const {jsPDF} = window.jspdf;
     const doc = new jsPDF();
 
-    const text = document.getElementById('note').value;
+    const text = document.getElementById('note').innerHTML;
     doc.setFontSize(16);
     doc.text(text, 10, 10);
-    doc.save('note.pdf');
+    doc.save(filename + '.pdf');
 }

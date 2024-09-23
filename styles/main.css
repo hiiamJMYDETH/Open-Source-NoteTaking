@@ -6,7 +6,38 @@ body {
 .header {
     border-style: solid;
     background-color:rgb(239, 239, 239);
-    border-radius: 10px;
+    border: 1px solid black;
+}
+
+.button {
+    height:100%;
+    background-color:white;
+    border: 1px solid black;
+    transition-duration: 0.4s;
+    cursor: pointer;
+}
+
+.new-note:hover {
+    background-color: green;
+    color: white;
+}
+
+.save-all-notes:hover {
+    background-color:greenyellow;
+}
+
+.delete-all-notes:hover {
+    background-color: rgb(134, 0, 0);
+    color: white;
+}
+
+.save-note:hover {
+    background-color: greenyellow;
+}
+
+.delete-note:hover {
+    background-color: red;
+    color:white;
 }
 
 .header-filename {
@@ -15,23 +46,28 @@ body {
 
 .note-container {
     margin: 20px auto;
-    max-width: 800px;
+    color:black;
 }
 
-.moveable-box {
-    display: none;
+.note-box {
+    height: 350px;
+    font-size: 16px;
+    font-family: Arial;
+    background-color:blanchedalmond;
     padding: 10px;
     border-radius: 5px;
     border: 1px solid black;
     position: absolute;
-    background-color:white;
 }
 
-textarea {
-    width: 100%;
-    height: 400px;
-    padding: 10px;
-    font-size: 16px;
-    border-radius: 5px;
-    border: 1px solid #ccc;
+.title {
+    width: 400px;
+    height:32px;
+    color:black;
+}
+
+.content {
+    width:400px;
+    height:280px;
+    color:black;
 }

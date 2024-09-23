@@ -7,42 +7,16 @@
         <link rel="stylesheet" href="styles/main.css">
     </head>
     <body id="body">
-        <header class="header">
-            <div class="header-filename">
-                <h2>Filename: </h2>
-                <input type="text" id="filename">
-            </div>
-            <button class="button" id="new-document">New document</button>
-            <button class="button" id="save-document" onclick="handleButtonClick(this.id)">Save document</button>
-            <button class="button" id="undo-document">Undo</button>
-            <button class="button" id="redo-document">Redo</button>
-            <button class="button" id="share-document">Share document</button>
-            <button class="button" id="more-options-header">More</button>
-            <div class="specific-editing-buttons">
-                <button class="button" id="change-font-type">Change font type</button>
-            </div>
-        </header>
-        <div class="moveable-box" id="save-document-box">
-            <button class="button" id="close-save-document" onclick="handleButtonClick('save-document')">X</button>
-            <h1>Save document</h1>
-            <input type="text" id="filename">
-            <form class="save-document-options">
-                <input type="radio" id="PDF" name="PDF" value="PDF">
-                <label for="PDF">PDF</label>
-                <input type="radio" id="wordDoc" name="wordDoc" value="wordDoc">
-                <label for="wordDoc">Word Document</label>
-            </form>
-            <button class="button" id="save-this-document" onclick="saveAsPDF()">Save</button>
+        <div class="header">
+            <h1>Kevin Trinh's Notes</h1>
+            <button class="button new-note" id="new-note">New note</button>
+            <button class="button save-all-notes" id="save-notes">Save all notes</button>
+            <button class="button delete-all-notes" id="delete-all-notes">Delete all notes</button>
+            <button class="button about-page" id="about">About</button>
         </div>
-        <div class="note-container">
-            <textarea id="note" placeholder="Type your notes here..."></textarea>
+        <div class="note-container" id="note-div">
         </div>
-        <div class="about-section">
-            <p>This application uses the jsPDF library, which is licensed under the MIT license. The licensed text can be found at <a href="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js">here</a>.</p>
-            <p>This application is free to modify and use.</p>
-            <p>Copyright @2024 Kevin Trinh</p>
-        </div>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+        <script src="https://kit.fontawesome.com/bf520e6492.js" crossorigin="anonymous"></script>
         <script src="scripts/main.js"></script>
     </body>
 </html>
